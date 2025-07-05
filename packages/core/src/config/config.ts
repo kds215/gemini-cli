@@ -52,7 +52,7 @@ export enum ApprovalMode {
 
 export interface AccessibilitySettings {
   disableLoadingPhrases?: boolean;
-  promptBox?: boolean;
+  viMode?: boolean;
 }
 
 export interface BugCommandSettings {
