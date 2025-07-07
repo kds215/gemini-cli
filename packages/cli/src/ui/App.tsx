@@ -555,6 +555,7 @@ const App = ({ config, settings, startupWarnings = [] }: AppProps) => {
             item={item}
             isPending={false}
             config={config}
+            viMode={config.getAccessibility()?.viMode ?? false}
           />
         ))}
       </Box>
@@ -605,6 +606,7 @@ const App = ({ config, settings, startupWarnings = [] }: AppProps) => {
                 item={h}
                 isPending={false}
                 config={config}
+                viMode={config.getAccessibility()?.viMode ?? false}
               />
             )),
           ]}
@@ -626,6 +628,7 @@ const App = ({ config, settings, startupWarnings = [] }: AppProps) => {
                 isPending={true}
                 config={config}
                 isFocused={!isEditorDialogOpen}
+                viMode={config.getAccessibility()?.viMode ?? false}
               />
             ))}
             <ShowMoreLines constrainHeight={constrainHeight} />
