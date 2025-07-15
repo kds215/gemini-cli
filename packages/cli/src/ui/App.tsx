@@ -730,9 +730,10 @@ const App = ({ config, settings, startupWarnings = [] }: AppProps) => {
                 width="100%"
               >
                 <Box>
-                  {!config.getAccessibility()?.viMode && (
-                    <Text color={Colors.AccentRed}>|⌐■_■| </Text>
-                  )}
+                  {!config.getAccessibility()?.viMode &&
+                    process.env.GEMINI_SYSTEM_MD && (
+                      <Text color={Colors.AccentRed}>|⌐■_■| </Text>
+                    )}
                   {ctrlCPressedOnce ? (
                     <Text color={Colors.AccentYellow}>
                       Press Ctrl+C again to exit.
