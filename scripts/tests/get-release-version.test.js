@@ -45,8 +45,8 @@ describe('getReleaseVersion', () => {
     );
     vi.mocked(execSync).mockReturnValue('abcdef');
     const { releaseTag, releaseVersion, npmTag } = getReleaseVersion();
-    expect(releaseTag).toBe('v0.1.9-nightly.250720.abcdef');
-    expect(releaseVersion).toBe('0.1.9-nightly.250720.abcdef');
+    expect(releaseTag).toBe('v0.1.12-nightly.250720.abcdef');
+    expect(releaseVersion).toBe('0.1.12-nightly.250720.abcdef');
     expect(npmTag).toBe('nightly');
   });
 
