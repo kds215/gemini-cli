@@ -1,5 +1,5 @@
 {
-  "name": "@google/gemini-cli",
+  "name": "@kds215/gemini-cli",
   "version": "0.1.14",
   "engines": {
     "node": ">=20.0.0"
@@ -8,7 +8,6 @@
   "workspaces": [
     "packages/*"
   ],
-  "private": "true",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/google-gemini/gemini-cli.git"
