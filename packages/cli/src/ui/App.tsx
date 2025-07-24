@@ -717,6 +717,8 @@ const App = ({ config, settings, startupWarnings = [], version }: AppProps) => {
               <Header
                 terminalWidth={terminalWidth}
                 viMode={config.getAccessibility()?.viMode ?? false}
+                version={version}
+                nightly={nightly} 
               />
               {!settings.merged.hideTips && (
                 <Tips
@@ -988,6 +990,7 @@ const App = ({ config, settings, startupWarnings = [], version }: AppProps) => {
             }
             promptTokenCount={sessionStats.lastPromptTokenCount}
             viMode={config.getAccessibility()?.viMode ?? false}
+            nightly={nightly}
           />
         </Box>
       </Box>
