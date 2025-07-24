@@ -15,12 +15,16 @@ interface HeaderProps {
   customAsciiArt?: string; // For user-defined ASCII art
   terminalWidth: number; // For responsive logo
   viMode: boolean;
+  version: string;
+  nightly: boolean;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   customAsciiArt,
   terminalWidth,
   viMode,
+  version,
+  nightly,
 }) => {
   if (viMode) {
     return null;
@@ -43,6 +47,7 @@ export const Header: React.FC<HeaderProps> = ({
       alignItems="flex-start"
       width={artWidth}
       flexShrink={0}
+      flexDirection="column"
     >
       {Colors.GradientColors ? (
         <Gradient colors={Colors.GradientColors}>
@@ -50,6 +55,13 @@ export const Header: React.FC<HeaderProps> = ({
         </Gradient>
       ) : (
         <Text>{displayTitle}</Text>
+      )}
+      {nightly && (
+        <Box width="100%" flexDirection="row" justifyContent="flex-end">
+          <Gradient colors={Colors.GradientColors}>
+            <Text>v{version}</Text>
+          </Gradient>
+        </Box>
       )}
     </Box>
   );
