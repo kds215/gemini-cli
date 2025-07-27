@@ -13,6 +13,7 @@ import { CloudFreePrivacyNotice } from './CloudFreePrivacyNotice.js';
 interface PrivacyNoticeProps {
   onExit: () => void;
   config: Config;
+  viMode: boolean;
 }
 
 const PrivacyNoticeText = ({
@@ -35,8 +36,16 @@ const PrivacyNoticeText = ({
   }
 };
 
-export const PrivacyNotice = ({ onExit, config }: PrivacyNoticeProps) => (
-  <Box borderStyle="round" padding={1} flexDirection="column">
+export const PrivacyNotice = ({
+  onExit,
+  config,
+  viMode,
+}: PrivacyNoticeProps) => (
+  <Box
+    borderStyle={viMode ? undefined : 'round'}
+    padding={1}
+    flexDirection="column"
+  >
     <PrivacyNoticeText config={config} onExit={onExit} />
   </Box>
 );

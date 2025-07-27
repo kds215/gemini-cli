@@ -23,6 +23,7 @@ interface ThemeDialogProps {
   settings: LoadedSettings;
   availableTerminalHeight?: number;
   terminalWidth: number;
+  viMode: boolean;
 }
 
 export function ThemeDialog({
@@ -31,6 +32,7 @@ export function ThemeDialog({
   settings,
   availableTerminalHeight,
   terminalWidth,
+  viMode,
 }: ThemeDialogProps): React.JSX.Element {
   const [selectedScope, setSelectedScope] = useState<SettingScope>(
     SettingScope.User,
@@ -212,7 +214,7 @@ export function ThemeDialog({
   const diffHeight = Math.floor(availableHeightForPanes * 0.4);
   return (
     <Box
-      borderStyle="round"
+      borderStyle={viMode ? undefined : 'round'}
       borderColor={Colors.Gray}
       flexDirection="column"
       paddingTop={includePadding ? 1 : 0}

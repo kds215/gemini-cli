@@ -769,7 +769,12 @@ const App = ({ config, settings, startupWarnings = [], version }: AppProps) => {
           </Box>
         </OverflowProvider>
 
-        {showHelp && <Help commands={slashCommands} />}
+        {showHelp && (
+          <Help
+            commands={slashCommands}
+            viMode={config.getAccessibility()?.viMode ?? false}
+          />
+        )}
 
         <Box flexDirection="column" ref={mainControlsRef}>
           {startupWarnings.length > 0 && (
@@ -805,6 +810,7 @@ const App = ({ config, settings, startupWarnings = [], version }: AppProps) => {
                     : undefined
                 }
                 terminalWidth={mainAreaWidth}
+                viMode={config.getAccessibility()?.viMode ?? false}
               />
             </Box>
           ) : isAuthenticating ? (
@@ -851,12 +857,14 @@ const App = ({ config, settings, startupWarnings = [], version }: AppProps) => {
                 onSelect={handleEditorSelect}
                 settings={settings}
                 onExit={exitEditorDialog}
+                viMode={config.getAccessibility()?.viMode ?? false}
               />
             </Box>
           ) : showPrivacyNotice ? (
             <PrivacyNotice
               onExit={() => setShowPrivacyNotice(false)}
               config={config}
+              viMode={config.getAccessibility()?.viMode ?? false}
             />
           ) : (
             <>

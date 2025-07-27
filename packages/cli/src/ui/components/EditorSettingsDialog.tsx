@@ -20,12 +20,14 @@ interface EditorDialogProps {
   onSelect: (editorType: EditorType | undefined, scope: SettingScope) => void;
   settings: LoadedSettings;
   onExit: () => void;
+  viMode: boolean;
 }
 
 export function EditorSettingsDialog({
   onSelect,
   settings,
   onExit,
+  viMode,
 }: EditorDialogProps): React.JSX.Element {
   const [selectedScope, setSelectedScope] = useState<SettingScope>(
     SettingScope.User,
@@ -98,7 +100,7 @@ export function EditorSettingsDialog({
 
   return (
     <Box
-      borderStyle="round"
+      borderStyle={viMode ? undefined : 'round'}
       borderColor={Colors.Gray}
       flexDirection="row"
       padding={1}

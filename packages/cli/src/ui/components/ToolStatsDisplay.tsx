@@ -52,7 +52,9 @@ const StatRow: React.FC<{
   );
 };
 
-export const ToolStatsDisplay: React.FC = () => {
+export const ToolStatsDisplay: React.FC<{ viMode?: boolean }> = ({
+  viMode,
+}) => {
   const { stats } = useSessionStats();
   const { tools } = stats.metrics;
   const activeTools = Object.entries(tools.byName).filter(
@@ -93,7 +95,7 @@ export const ToolStatsDisplay: React.FC = () => {
 
   return (
     <Box
-      borderStyle="round"
+      borderStyle={viMode ? undefined : 'round'}
       borderColor={Colors.Gray}
       flexDirection="column"
       paddingY={1}

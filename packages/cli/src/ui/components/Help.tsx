@@ -11,14 +11,15 @@ import { SlashCommand } from '../commands/types.js';
 
 interface Help {
   commands: readonly SlashCommand[];
+  viMode: boolean;
 }
 
-export const Help: React.FC<Help> = ({ commands }) => (
+export const Help: React.FC<Help> = ({ commands, viMode }) => (
   <Box
     flexDirection="column"
     marginBottom={1}
-    borderColor={Colors.Gray}
-    borderStyle="round"
+    borderColor={viMode ? undefined : Colors.Gray}
+    borderStyle={viMode ? undefined : 'round'}
     padding={1}
   >
     {/* Basics */}

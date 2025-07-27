@@ -142,11 +142,13 @@ const ModelUsageTable: React.FC<{
 interface StatsDisplayProps {
   duration: string;
   title?: string;
+  viMode?: boolean;
 }
 
 export const StatsDisplay: React.FC<StatsDisplayProps> = ({
   duration,
   title,
+  viMode,
 }) => {
   const { stats } = useSessionStats();
   const { metrics } = stats;
@@ -188,7 +190,7 @@ export const StatsDisplay: React.FC<StatsDisplayProps> = ({
 
   return (
     <Box
-      borderStyle="round"
+      borderStyle={viMode ? undefined : 'round'}
       borderColor={Colors.Gray}
       flexDirection="column"
       paddingY={1}

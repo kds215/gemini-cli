@@ -45,7 +45,9 @@ const StatRow: React.FC<StatRowProps> = ({
   </Box>
 );
 
-export const ModelStatsDisplay: React.FC = () => {
+export const ModelStatsDisplay: React.FC<{ viMode?: boolean }> = ({
+  viMode,
+}) => {
   const { stats } = useSessionStats();
   const { models } = stats.metrics;
   const activeModels = Object.entries(models).filter(
@@ -81,7 +83,7 @@ export const ModelStatsDisplay: React.FC = () => {
 
   return (
     <Box
-      borderStyle="round"
+      borderStyle={viMode ? undefined : 'round'}
       borderColor={Colors.Gray}
       flexDirection="column"
       paddingY={1}
