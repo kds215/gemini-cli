@@ -21,7 +21,7 @@ import {
   getErrorMessage,
   isWithinRoot,
   getErrorStatus,
-} from '@google/gemini-cli-core';
+} from '@kds215/gemini-cli-core';
 import * as acp from './acp.js';
 import { Agent } from './acp.js';
 import { Readable, Writable } from 'node:stream';

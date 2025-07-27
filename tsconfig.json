@@ -15,6 +15,17 @@
     "moduleResolution": "nodenext",
     "target": "es2022",
     "types": ["node", "vitest/globals"],
-    "jsx": "react-jsx"
-  }
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@kds215/gemini-cli": ["./packages/cli/src"],
+      "@kds215/gemini-cli-core": ["./packages/core/src"]
+    }
+  },
+  "include": ["packages/*/src", "packages/*/index.ts"],
+  "references": [
+    { "path": "./packages/cli" },
+    { "path": "./packages/core" },
+    { "path": "./packages/vscode-ide-companion" }
+  ]
 }

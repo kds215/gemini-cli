@@ -7,7 +7,7 @@
 import {
   getErrorMessage,
   loadServerHierarchicalMemory,
-} from '@google/gemini-cli-core';
+} from '@kds215/gemini-cli-core';
 import { MessageType } from '../types.js';
 import {
   CommandKind,

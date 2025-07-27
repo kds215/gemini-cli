@@ -19,7 +19,7 @@ import {
   MCPServerStatus,
   mcpServerRequiresOAuth,
   getErrorMessage,
-} from '@google/gemini-cli-core';
+} from '@kds215/gemini-cli-core';
 import open from 'open';
 
 const COLOR_GREEN = '\u001b[32m';
@@ -139,7 +139,7 @@ const getMcpStatus = async (
       needsAuthHint = true;
       try {
         const { MCPOAuthTokenStorage } = await import(
-          '@google/gemini-cli-core'
+          '@kds215/gemini-cli-core'
         );
         const hasToken = await MCPOAuthTokenStorage.getToken(serverName);
         if (hasToken) {
@@ -326,7 +326,7 @@ const authCommand: SlashCommand = {
       );
 
       // Import dynamically to avoid circular dependencies
-      const { MCPOAuthProvider } = await import('@google/gemini-cli-core');
+      const { MCPOAuthProvider } = await import('@kds215/gemini-cli-core');
 
       // Create OAuth config for authentication (will be discovered automatically)
       const oauthConfig = server.oauth || {

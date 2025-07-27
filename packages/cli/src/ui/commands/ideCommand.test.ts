@@ -15,7 +15,7 @@ import {
 } from 'vitest';
 import { ideCommand } from './ideCommand.js';
 import { type CommandContext } from './types.js';
-import { type Config } from '@google/gemini-cli-core';
+import { type Config } from '@kds215/gemini-cli-core';
 import * as child_process from 'child_process';
 import { glob } from 'glob';
 
@@ -25,13 +25,13 @@ import {
   IDE_SERVER_NAME,
   MCPDiscoveryState,
   MCPServerStatus,
-} from '@google/gemini-cli-core';
+} from '@kds215/gemini-cli-core';
 
 vi.mock('child_process');
 vi.mock('glob');
-vi.mock('@google/gemini-cli-core', async (importOriginal) => {
+vi.mock('@kds215/gemini-cli-core', async (importOriginal) => {
   const original =
-    await importOriginal<typeof import('@google/gemini-cli-core')>();
+    await importOriginal<typeof import('@kds215/gemini-cli-core')>();
   return {
     ...original,
     getMCPServerStatus: vi.fn(),

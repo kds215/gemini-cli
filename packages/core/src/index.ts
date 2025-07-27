@@ -79,3 +79,7 @@ export { OAuthUtils } from './mcp/oauth-utils.js';
 export * from './telemetry/index.js';
 export { sessionId } from './utils/session.js';
 export * from './utils/browser.js';
+export {
+  DEFAULT_GEMINI_MODEL,
+  DEFAULT_GEMINI_EMBEDDING_MODEL,
+} from './config/models.js';

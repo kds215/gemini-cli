@@ -21,7 +21,7 @@ import {
   ToolCall,
   Status as CoreStatus,
   EditorType,
-} from '@google/gemini-cli-core';
+} from '@kds215/gemini-cli-core';
 import { useCallback, useState, useMemo } from 'react';
 import {
   HistoryItemToolGroup,

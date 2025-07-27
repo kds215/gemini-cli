@@ -16,7 +16,7 @@ import {
   Config,
   FileDiscoveryService,
   DEFAULT_FILE_FILTERING_OPTIONS,
-} from '@google/gemini-cli-core';
+} from '@kds215/gemini-cli-core';
 import {
   MAX_SUGGESTIONS_TO_SHOW,
   Suggestion,
