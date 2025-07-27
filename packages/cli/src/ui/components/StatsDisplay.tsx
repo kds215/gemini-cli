@@ -94,7 +94,7 @@ const ModelUsageTable: React.FC<{
       </Box>
       {/* Divider */}
       <Box
-        borderStyle={viMode ? undefined : 'round'}
+        borderStyle={viMode ? undefined : undefined}
         borderBottom={true}
         borderTop={false}
         borderLeft={false}

@@ -76,7 +76,9 @@ export const HistoryItemDisplay: React.FC<HistoryItemDisplayProps> = ({
         viMode={viMode}
       />
     )}
-    {item.type === 'stats' && <StatsDisplay duration={item.duration} />}
+    {item.type === 'stats' && (
+      <StatsDisplay duration={item.duration} viMode={viMode} />
+    )}
     {item.type === 'model_stats' && <ModelStatsDisplay viMode={viMode} />}
     {item.type === 'tool_stats' && <ToolStatsDisplay viMode={viMode} />}
     {item.type === 'quit' && (
