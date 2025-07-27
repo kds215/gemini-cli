@@ -52,7 +52,7 @@ export interface CliArgs {
   yolo: boolean | undefined;
   telemetry: boolean | undefined;
   checkpointing: boolean | undefined;
-  vi: boolean | undefined;
+  reader: boolean | undefined;
   telemetryTarget: string | undefined;
   telemetryOtlpEndpoint: string | undefined;
   telemetryLogPrompts: boolean | undefined;
@@ -171,9 +171,11 @@ export async function parseArguments(): Promise<CliArgs> {
       description: 'Enables checkpointing of file edits',
       default: false,
     })
-    .option('vi', {
+    .option('reader', {
+      alias: 'r',
       type: 'boolean',
-      description: 'Enable VI mode for visually impaired users',
+      description:
+        'Enable reader mode for visually impaired users (removes UI box frames)',
       default: false,
     })
     .option('experimental-acp', {
@@ -416,7 +418,7 @@ export async function loadCliConfig(
       argv.showMemoryUsage ||
       settings.showMemoryUsage ||
       false,
-    accessibility: { ...(settings.accessibility ?? {}), viMode: argv.vi },
+    accessibility: { ...(settings.accessibility ?? {}), viMode: argv.reader },
     telemetry: {
       enabled: argv.telemetry ?? settings.telemetry?.enabled,
       target: (argv.telemetryTarget ??
