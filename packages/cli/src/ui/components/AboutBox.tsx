@@ -16,6 +16,7 @@ interface AboutBoxProps {
   modelVersion: string;
   selectedAuthType: string;
   gcpProject: string;
+  viMode: boolean;
 }
 
 export const AboutBox: React.FC<AboutBoxProps> = ({
@@ -25,9 +26,10 @@ export const AboutBox: React.FC<AboutBoxProps> = ({
   modelVersion,
   selectedAuthType,
   gcpProject,
+  viMode,
 }) => (
   <Box
-    borderStyle="round"
+    borderStyle={viMode ? undefined : 'round'}
     borderColor={Colors.Gray}
     flexDirection="column"
     padding={1}

@@ -92,6 +92,7 @@ interface AppProps {
   settings: LoadedSettings;
   startupWarnings?: string[];
   version: string;
+  viMode?: boolean;
 }
 
 export const AppWrapper = (props: AppProps) => (
@@ -714,12 +715,16 @@ const App = ({ config, settings, startupWarnings = [], version }: AppProps) => {
           key={staticKey}
           items={[
             <Box flexDirection="column" key="header">
-              <Header
-                terminalWidth={terminalWidth}
-                viMode={config.getAccessibility()?.viMode ?? false}
-                version={version}
-                nightly={nightly} 
-              />
+              {!(
+                settings.merged.hideBanner || config.getAccessibility()?.viMode
+              ) && (
+                <Header
+                  terminalWidth={terminalWidth}
+                  viMode={config.getAccessibility()?.viMode ?? false}
+                  version={version}
+                  nightly={nightly}
+                />
+              )}
               {!settings.merged.hideTips && (
                 <Tips
                   config={config}
@@ -832,6 +837,7 @@ const App = ({ config, settings, startupWarnings = [], version }: AppProps) => {
                 onSelect={handleAuthSelect}
                 settings={settings}
                 initialErrorMessage={authError}
+                viMode={config.getAccessibility()?.viMode ?? false}
               />
             </Box>
           ) : isEditorDialogOpen ? (

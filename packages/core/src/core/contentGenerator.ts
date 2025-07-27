@@ -91,13 +91,18 @@ export function createContentGeneratorConfig(
     return contentGeneratorConfig;
   }
 
-  if (
-    authType === AuthType.USE_VERTEX_AI &&
-    (googleApiKey || (googleCloudProject && googleCloudLocation))
-  ) {
-    contentGeneratorConfig.apiKey = googleApiKey;
-    contentGeneratorConfig.vertexai = true;
-
+  if (authType === AuthType.USE_VERTEX_AI) {
+    if (googleApiKey) {
+      contentGeneratorConfig.apiKey = googleApiKey;
+      contentGeneratorConfig.vertexai = true;
+    } else if (googleCloudProject && googleCloudLocation) {
+      contentGeneratorConfig.apiKey = undefined; // Ensure apiKey is undefined when using GCP project/location
+      contentGeneratorConfig.vertexai = true;
+    } else {
+      // Neither googleApiKey nor GCP project/location are fully set for Vertex AI
+      contentGeneratorConfig.apiKey = undefined;
+      contentGeneratorConfig.vertexai = undefined;
+    }
     return contentGeneratorConfig;
   }
 

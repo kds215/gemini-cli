@@ -44,7 +44,7 @@ describe('getReleaseVersion', () => {
     const knownDate = new Date('2025-07-20T10:00:00.000Z');
     vi.setSystemTime(knownDate);
     vi.mocked(fs.default.readFileSync).mockReturnValue(
-      JSON.stringify({ version: '0.1.0' }),
+      JSON.stringify({ version: '0.1.12' }),
     );
     vi.mocked(execSync).mockReturnValue('abcdef');
     const { releaseTag, releaseVersion, npmTag } = getReleaseVersion();

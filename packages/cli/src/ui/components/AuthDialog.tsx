@@ -16,6 +16,7 @@ interface AuthDialogProps {
   onSelect: (authMethod: AuthType | undefined, scope: SettingScope) => void;
   settings: LoadedSettings;
   initialErrorMessage?: string | null;
+  viMode: boolean;
 }
 
 function parseDefaultAuthType(
@@ -34,6 +35,7 @@ export function AuthDialog({
   onSelect,
   settings,
   initialErrorMessage,
+  viMode,
 }: AuthDialogProps): React.JSX.Element {
   const [errorMessage, setErrorMessage] = useState<string | null>(() => {
     if (initialErrorMessage) {
@@ -128,7 +130,7 @@ export function AuthDialog({
 
   return (
     <Box
-      borderStyle="round"
+      borderStyle={viMode ? undefined : 'round'}
       borderColor={Colors.Gray}
       flexDirection="column"
       padding={1}
