@@ -412,8 +412,11 @@ export async function loadCliConfig(
     geminiMdFileCount: fileCount,
     approvalMode: argv.yolo || false ? ApprovalMode.YOLO : ApprovalMode.DEFAULT,
     showMemoryUsage:
-      argv.show_memory_usage || argv.showMemoryUsage || settings.showMemoryUsage || false,
-      accessibility: { ...(settings.accessibility ?? {}), viMode: argv.vi },
+      argv.show_memory_usage ||
+      argv.showMemoryUsage ||
+      settings.showMemoryUsage ||
+      false,
+    accessibility: { ...(settings.accessibility ?? {}), viMode: argv.vi },
     telemetry: {
       enabled: argv.telemetry ?? settings.telemetry?.enabled,
       target: (argv.telemetryTarget ??

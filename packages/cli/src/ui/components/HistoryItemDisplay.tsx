@@ -73,6 +73,7 @@ export const HistoryItemDisplay: React.FC<HistoryItemDisplayProps> = ({
         modelVersion={item.modelVersion}
         selectedAuthType={item.selectedAuthType}
         gcpProject={item.gcpProject}
+        viMode={viMode}
       />
     )}
     {item.type === 'stats' && <StatsDisplay duration={item.duration} />}
