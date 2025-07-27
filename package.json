@@ -1,6 +1,6 @@
 {
   "name": "@kds215/gemini-cli",
-  "version": "0.1.17",
+  "version": "0.2.0",
   "engines": {
     "node": ">=20.0.0"
   },
@@ -13,7 +13,7 @@
     "url": "git+https://github.com/google-gemini/gemini-cli.git"
   },
   "config": {
-    "sandboxImageUri": "us-docker.pkg.dev/gemini-code-dev/@kds215/gemini-cli/sandbox:0.1.17"
+    "sandboxImageUri": "us-docker.pkg.dev/gemini-code-dev/@kds215/gemini-cli/sandbox:0.2.0"
   },
   "scripts": {
     "start": "node scripts/start.js",
