@@ -57,7 +57,7 @@ export const ModelStatsDisplay: React.FC<{ viMode?: boolean }> = ({
   if (activeModels.length === 0) {
     return (
       <Box
-        borderStyle="round"
+        borderStyle={viMode ? undefined : 'round'}
         borderColor={Colors.Gray}
         paddingY={1}
         paddingX={2}

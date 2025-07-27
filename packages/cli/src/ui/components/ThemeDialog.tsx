@@ -271,7 +271,7 @@ export function ThemeDialog({
               ) || DEFAULT_THEME;
             return (
               <Box
-                borderStyle="single"
+                borderStyle={viMode ? undefined : 'single'}
                 borderColor={Colors.Gray}
                 paddingTop={includePadding ? 1 : 0}
                 paddingBottom={includePadding ? 1 : 0}

@@ -64,7 +64,7 @@ export const ToolStatsDisplay: React.FC<{ viMode?: boolean }> = ({
   if (activeTools.length === 0) {
     return (
       <Box
-        borderStyle="round"
+        borderStyle={viMode ? undefined : 'round'}
         borderColor={Colors.Gray}
         paddingY={1}
         paddingX={2}

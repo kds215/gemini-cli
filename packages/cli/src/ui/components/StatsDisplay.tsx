@@ -68,7 +68,8 @@ const ModelUsageTable: React.FC<{
   models: Record<string, ModelMetrics>;
   totalCachedTokens: number;
   cacheEfficiency: number;
-}> = ({ models, totalCachedTokens, cacheEfficiency }) => {
+  viMode?: boolean;
+}> = ({ models, totalCachedTokens, cacheEfficiency, viMode }) => {
   const nameWidth = 25;
   const requestsWidth = 8;
   const inputTokensWidth = 15;
@@ -93,7 +94,7 @@ const ModelUsageTable: React.FC<{
       </Box>
       {/* Divider */}
       <Box
-        borderStyle="round"
+        borderStyle={viMode ? undefined : 'round'}
         borderBottom={true}
         borderTop={false}
         borderLeft={false}
@@ -254,6 +255,7 @@ export const StatsDisplay: React.FC<StatsDisplayProps> = ({
           models={models}
           totalCachedTokens={computed.totalCachedTokens}
           cacheEfficiency={computed.cacheEfficiency}
+          viMode={viMode}
         />
       )}
     </Box>
