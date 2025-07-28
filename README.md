@@ -1,21 +1,44 @@
-# Gemini CLI
+# Release: [@kds215/gemini-cli@0.2.0] - Public Beta for Accessibility Testing
 
-[![Gemini CLI CI](https://github.com/google-gemini/gemini-cli/actions/workflows/ci.yml/badge.svg)](https://github.com/google-gemini/gemini-cli/actions/workflows/ci.yml)
+## Overview
+Welcome to the public beta release of **gemini for the blind**! This @kds215/gemini-cli@0.2.0 version is intended for use by blind and visually impaired users. Your feedback (especially from blind users) is crucial to making this tool as accessible and effective as possible. With your beta testing support, hopefully, this version will become part of the next official @google/gemini-cli release.
 
-![Gemini CLI Screenshot](./docs/assets/gemini-screenshot.png)
+The main difference between the official @google/gemini-cli and **this @kds215/gemini-cli version** is that it has an **added [ -r or --reader ] option** to suppress the output of all ascii-box-drawing characters shown around every gemini output line. Without the **--reader option** it is impractical for blind users to listen at gemini launch time for roughly 3 minutes just for the "Gemini" banner made up of black&white box characters. In addition every gemini generated output line is framed by box-drawing ascii characters that must also by read by a reader.
 
-This repository contains the Gemini CLI, a command-line AI workflow tool that connects to your
-tools, understands your code and accelerates your workflows.
+Using **gemini -r or --reader** option frees readers from sounding-out all (useless) clutter characters and blind users can focus on their AI-gemini tasks at hand.
+
+## Important
+With the --reader option gemini returns results without framing borders around output lines. Here are examples of what specific output characters to look for to navigate through gemini's responses:
+
+1. **a new prompt line always starts with** 
+- " **>**   Type your message or @path/to/file “
+- and the cursor is right after the “ **>** “ character. 
+- Your input typing will always override this 'Type your message…' string.
+2. after entering your prompt line, type **RETURN**, gemini's response will start with 
+- an small plus sign “ **✦** “ (or like a star symbol) in the output line’s first position
+- followed by other explanations & comments from gemini etc.
+3. now, within this “ **✦** “ response text block, gemini can start a new line with 
+- two leading spaces followed by a check-mark character “  **✔**  “.
+- This indicates a tool usage like Shell command, WriteFile, ReadFolder, ReadFile, etc.
+- Instead of the check-mark there can be also a " **?** " to show the tool to be
+- run but you need to give it permission to run.
+4. after your **prompt** has been answered 
+- a new “ **>** “ prompt line appears as in item 1. above.
+
+## From the official @google/gemini-cli README:
+
+This repository contains the Gemini CLI, a command-line AI workflow tool that connects to your tools, 
+understands your code and accelerates your workflows.
 
 With the Gemini CLI you can:
 
 - Query and edit large codebases in and beyond Gemini's 1M token context window.
-- Generate new apps from PDFs or sketches, using Gemini's multimodal capabilities.
+- Generate new apps from PDFs or sketches, using Gemini's multimodal capabilities (prompt and images input).
 - Automate operational tasks, like querying pull requests or handling complex rebases.
 - Use tools and MCP servers to connect new capabilities, including [media generation with Imagen,
   Veo or Lyria](https://github.com/GoogleCloudPlatform/vertex-ai-creative-studio/tree/main/experiments/mcp-genmedia)
-- Ground your queries with the [Google Search](https://ai.google.dev/gemini-api/docs/grounding)
-  tool, built into Gemini.
+- Ground your queries with the [Google Search](https://ai.google.dev/gemini-api/docs/grounding) tool, built into Gemini.
+
 
 ## Quickstart
 
@@ -27,40 +50,40 @@ You have two options to install Gemini CLI.
 2. **Run the CLI:** Execute the following command in your terminal:
 
    ```bash
-   npx https://github.com/google-gemini/gemini-cli
+   npx https://github.com/kds215/gemini-cli -r or --reader    ( -r or reader with 2 dashes )
    ```
 
-   Or install it with:
+   **Or install** first with:
 
    ```bash
-   npm install -g @google/gemini-cli
+   npm install -g @kds215/gemini-cli
    ```
 
-   Then, run the CLI from anywhere:
+   Then second, run the CLI from anywhere:
 
    ```bash
-   gemini
+   gemini -r or --reader     ( -r or reader with 2 dashes )
    ```
 
 ### With Homebrew
 
 1. **Prerequisites:** Ensure you have [Homebrew](https://brew.sh/) installed.
-2. **Install the CLI** Execute the following command in your terminal:
+2. **Install the CLI** Execute the following command in your terminal first:
 
    ```bash
    brew install gemini-cli
    ```
 
-   Then, run the CLI from anywhere:
+   Then second, run the CLI from anywhere:
 
    ```bash
-   gemini
+   gemini -r or --reader    (reader with 2 dashes)
    ```
 
-### Common Configuration steps
+### Common Configuration steps when running gemini using /commands
 
-3. **Pick a color theme**
-4. **Authenticate:** When prompted, sign in with your personal Google account. This will grant you up to 60 model requests per minute and 1,000 model requests per day using Gemini.
+3. **Pick a color theme** using /theme command to pick a suitable color theme for your VI needs.
+4. **Authenticate:** When prompted, sign in with your **personal** Google account. This will grant you up to 60 model requests per minute and 1,000 model requests per day using Gemini.
 
 You are now ready to use the Gemini CLI!
 
@@ -95,7 +118,7 @@ For other authentication methods, including Google Workspace accounts, see the [
 
 ## Examples
 
-Once the CLI is running, you can start interacting with Gemini from your shell.
+Once the CLI is running, you can start interacting with Gemini from your shell/terminal.
 
 You can start a project from a new directory:
 
@@ -178,6 +201,28 @@ Use MCP servers to integrate your local system tools with your enterprise collab
 
 Head over to the [Uninstall](docs/Uninstall.md) guide for uninstallation instructions.
 
-## Terms of Service and Privacy Notice
+## Accessibility Features
+- Keyboard-only navigation support.
+- Screen reader compatibility.
+- use **gemini -r or --reader** option for no clutter output to quiet down readers.
 
-For details on the terms of service and privacy notice applicable to your use of Gemini CLI, see the [Terms of Service and Privacy Notice](./docs/tos-privacy.md).
+## Known Issues / Limitations
+- tested with reader: VoiceOver (macOS)
+- tested on macOS 15.5 and windows11
+
+## How to Give Feedback
+We value your input! Please report bugs, accessibility issues, or suggestions:
+
+- [Open an issue on GitHub.](https://github.com/kds215/gemini-cli/issues)
+- Email: [klaus@szyska.com]
+- [Other feedback channels, if any.]
+
+## Changelog
+- [List major changes since the previous version, if applicable.]
+
+## Contributors
+Thank you to everyone who is testing this release! And thanks to gemini-cli itself who graciously has changed its own frontend code.
+
+---
+
+*Please note: This is a beta release. There may be bugs or incomplete features. Your feedback helps us improve!*
