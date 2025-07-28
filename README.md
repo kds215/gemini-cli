@@ -225,4 +225,4 @@ Thank you to everyone who is testing this release! And thanks to gemini-cli itse
 
 ---
 
-*Please note: This is a beta release. There may be bugs or incomplete features. Your feedback helps us improve!*
+_Please note: This is a beta release. There may be bugs or incomplete features. Your feedback helps us improve!_
