@@ -1,5 +1,8 @@
 # Release: [@kds215/gemini-cli@0.2.0] - Public Beta for Accessibility Testing
 
+## Security Warning
+This release has been unpublished because of possible security vulnerabilities in the official @google/gemini-cli release on which this release is based. The plan of action is to convince Google to incorporate this "gemini --reader" version back into the official Google Gemini CLI release cycle to ensure Google's official anti-malware and anti-hacker measures are also included and up-to-date.
+
 ## Overview
 Welcome to the public beta release of **gemini for the blind**! This @kds215/gemini-cli@0.2.0 version is intended for use by blind and visually impaired users. Your feedback (especially from blind users) is crucial to making this tool as accessible and effective as possible. With your beta testing support, hopefully, this version will become part of the next official @google/gemini-cli release.
 
