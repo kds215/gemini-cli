@@ -49,7 +49,7 @@
       {
         "command": "gemini.cli.generateCommitMessage",
         "title": "Generate Commit Message",
-        "icon": "$(sparkle)"
+        "icon": "$(git-commit)"
       }
     ],
     "menus": {
