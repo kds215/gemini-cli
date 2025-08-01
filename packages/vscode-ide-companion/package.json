@@ -31,6 +31,34 @@
     "onStartupFinished"
   ],
   "main": "./dist/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Gemini CLI",
+      "properties": {
+        "gemini.cli.readerMode": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enables reader mode for accessibility, providing plain text output. This is enabled by default."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "gemini.cli.generateCommitMessage",
+        "title": "Generate Commit Message",
+        "icon": "$(sparkle)"
+      }
+    ],
+    "menus": {
+      "scm/title": [
+        {
+          "command": "gemini.cli.generateCommitMessage",
+          "when": "scmProvider == 'git'",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
   "scripts": {
     "vscode:prepublish": "npm run check-types && npm run lint && node esbuild.js --production",
     "build": "npm run compile",

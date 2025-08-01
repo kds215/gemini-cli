@@ -17,6 +17,24 @@ export async function activate(context: vscode.ExtensionContext) {
   log = createLogger(context, logger);
 
   log('Extension activated');
+
+  const commandRegistration = vscode.commands.registerCommand(
+    'gemini.cli.generateCommitMessage',
+    () => {
+      const config = vscode.workspace.getConfiguration('gemini.cli');
+      const readerMode = config.get('readerMode', true);
+      const command = `gemini ${readerMode ? '--reader' : ''} g -t "commit message"`;
+
+      const terminal = vscode.window.createTerminal({
+        name: 'Gemini CLI',
+        isTransient: true,
+      });
+      terminal.sendText(command, true);
+      terminal.show();
+    },
+  );
+  context.subscriptions.push(commandRegistration);
+
   ideServer = new IDEServer(log);
   try {
     await ideServer.start(context);
