@@ -23,7 +23,7 @@ export async function activate(context: vscode.ExtensionContext) {
     () => {
       const config = vscode.workspace.getConfiguration('gemini.cli');
       const readerMode = config.get('readerMode', true);
-      const command = `gemini ${readerMode ? '--reader' : ''} g -t "commit message"`;
+      const command = `gemini ${readerMode ? '--reader' : ''} -i "/git:commit 'Generate a commit message for the following changes:'"`;
 
       const terminal = vscode.window.createTerminal({
         name: 'Gemini CLI',
